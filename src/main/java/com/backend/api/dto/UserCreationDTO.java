@@ -1,10 +1,21 @@
 package com.backend.api.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class UserCreationDTO {
+	
+	@NotBlank(message = "Param firstName must be filled")
   private String firstName;
+	@NotBlank(message = "Param lastName must be filled")
   private String lastName;
+	@NotBlank(message = "Param username must be filled")
   private String username;
+	@NotBlank(message = "Param email must be filled")
+	@Email(message = "Param email must be valid")
   private String email;
+	@NotBlank(message = "Param password must be filled")
   private String password;
 
   public UserCreationDTO(String firstName, String lastName, String username, String email, String password) {
